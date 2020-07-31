@@ -4,7 +4,6 @@ from os import getenv
 
 class Config:
     SECRET_KEY = getenv('SECRET_KEY') or 'a random string'
-    APP_PORT = int(getenv('APP_PORT'))
     DEBUG = eval(getenv('DEBUG').title())
     OIDC_INTROSPECTION_AUTH_METHOD = getenv('OIDC_INTROSPECTION_AUTH_METHOD')
     OIDC_CLIENT_SECRETS = getenv('OIDC_CLIENT_SECRETS')
@@ -17,6 +16,7 @@ class Config:
 class DevelopmentConfig(Config):
     FLASK_ENV = 'development'
     DEBUG = True
+    APP_PORT = 8000
 
 
 config = {
